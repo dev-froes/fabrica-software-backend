@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 
 class LancamentoController extends Controller
 {
-    // GET /api/lancamentos
     public function index(Request $request)
     {
         $query = Lancamento::query();
@@ -17,7 +16,6 @@ class LancamentoController extends Controller
             $query->where('projeto_id', $request->projeto_id);
         }
 
-        // Ex: /api/lancamentos?inicio=2026-01-01&fim=2026-01-31
         if ($request->filled('inicio') && $request->filled('fim')) {
             $query->whereBetween('data', [$request->inicio, $request->fim]);
         }
@@ -25,7 +23,6 @@ class LancamentoController extends Controller
         return response()->json($query->get());
     }
 
-    // POST /api/lancamentos
     public function store(Request $request)
     {
         $dados = $request->validate([
@@ -41,14 +38,12 @@ class LancamentoController extends Controller
         return response()->json($lancamento, 201);
     }
 
-    // GET /api/lancamentos/{id}
 
     public function show(Lancamento $lancamento)
     {
         return response()->json($lancamento);
     }
 
-    // PUT /api/lancamentos/{id}
     public function update(Request $request, Lancamento $lancamento)
     {
         $dados = $request->validate([
@@ -64,7 +59,6 @@ class LancamentoController extends Controller
         return response()->json($lancamento);
     }
 
-    // DELETE /api/lancamentos/{id}
     public function destroy(Lancamento $lancamento)
     {
         $lancamento->delete();

@@ -10,7 +10,6 @@ use Illuminate\Validation\Rule;
 
 class ProjetoController extends Controller
 {
-    //GET /api/projetos?cliente_id=1&search=termo
     public function index(Request $request)
     {
         $search = $request->query('search');
@@ -29,7 +28,6 @@ class ProjetoController extends Controller
         return response()->json($query->orderBy('id', 'desc')->get());
     }
 
-    //POST /api/projetos
     public function store(Request $request)
     {
         $data = $request->validate([
@@ -49,13 +47,11 @@ class ProjetoController extends Controller
         return response()->json($projeto, 201);
     }
 
-    //GET /api/projetos/{projeto}
     public function show(Projeto $projeto)
     {
         return response()->json($projeto);
     }
 
-    //PUT/PATCH /api/projetos/{projeto}
     public function update(Request $request, Projeto $projeto)
     {
         $data = $request->validate([
@@ -74,7 +70,6 @@ class ProjetoController extends Controller
         return response()->json($projeto);
     }
 
-    //DELETE /api/projetos/{projeto}
     public function destroy(Projeto $projeto)
     {
         $projeto->delete();
@@ -83,7 +78,6 @@ class ProjetoController extends Controller
     }
 
 
-    //DASHBOARD
     public function dashboard(Request $request, Projeto $projeto)
     {
         $data = $request->validate([
@@ -94,12 +88,10 @@ class ProjetoController extends Controller
         $inicio = $data['inicio'];
         $fim = $data['fim'];
 
-        //busca os lançamentos do projeto no período
         $lancamentos = $projeto->lancamentos()
             ->whereBetween('data', [$inicio, $fim])
             ->get();
 
-        //calcula o total de horas lançadas
         $horasTotais = (float) $lancamentos->sum('horas');
         $custoHoraBase = (float) $projeto->custo_hora_base;
         $receita = (float) $projeto->valor_contrato;
@@ -109,7 +101,6 @@ class ProjetoController extends Controller
         $margemPercentual = $receita > 0 ? ($margem / $receita) * 100 : 0;
         $breakEvenHoras = $custoHoraBase > 0 ? ($receita / $custoHoraBase) : 0;
 
-        // Resumo por tipo (horas e custo por tipo)
 
         $porTipo = $lancamentos
             ->groupBy('tipo')

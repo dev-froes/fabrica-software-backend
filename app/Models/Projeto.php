@@ -17,11 +17,11 @@ class Projeto extends Model
     ];
     public function cliente()
     {
-        return $this->belongsTo(Cliente::class); //um projeto pertence a um cliente
+        return $this->belongsTo(Cliente::class); 
     }
 
     public function lancamentos()
     {
-        return $this->hasMany(Lancamento::class); //um projeto pode ter muitos lançamentos
+        return $this->hasMany(Lancamento::class);
     }
 }

@@ -37,13 +37,12 @@ class ClienteController extends Controller
     return response()->json($cliente, 201);
 }
 
-    //GET /api/clientes/{cliente}
+    
     public function show(Cliente $cliente)
     {
         return response()->json($cliente);
     }
 
-    //PUT/PATCH /api/clientes/{cliente}
     public function update(Request $request, Cliente $cliente)
     {
         $data = $request->validate([
@@ -57,7 +56,6 @@ class ClienteController extends Controller
 
         return response()->json($cliente);
     }
-    //DELETE /api/clientes/{cliente}
     public function destroy(Cliente $cliente)
     {
         $cliente->delete();

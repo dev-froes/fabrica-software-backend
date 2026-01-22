@@ -6,7 +6,7 @@ Este projeto faz parte de um desafio técnico com foco em **operações e custos
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+##  Tecnologias Utilizadas
 
 - PHP 8+
 - Laravel 12
@@ -16,7 +16,7 @@ Este projeto faz parte de um desafio técnico com foco em **operações e custos
 
 ---
 
-## 📂 Estrutura do Projeto
+##  Estrutura do Projeto
 
 - `app/Models` → Models (Cliente, Projeto, Lancamento)
 - `app/Http/Controllers/Api` → Controllers da API
@@ -26,18 +26,18 @@ Este projeto faz parte de um desafio técnico com foco em **operações e custos
 
 ---
 
-## ⚙️ Como rodar o projeto localmente
+##  Como rodar o projeto localmente
 
-### 1️⃣ Clonar o repositório
+### 1️ Clonar o repositório
 
 ```bash
 git clone https://github.com/dev-froes/fabrica-software-backend.git
 cd fabrica-software-backend
 
-2️⃣ Instalar dependências
+2️ Instalar dependências
 composer install
 
-3️⃣ Configurar variáveis de ambiente
+3️ Configurar variáveis de ambiente
 cp .env.example .env
 php artisan key:generate
 
@@ -50,17 +50,17 @@ DB_DATABASE=fabrica_software
 DB_USERNAME=SEU_USUARIO
 DB_PASSWORD=SUA_SENHA
 
-4️⃣ Rodar migrations
+4️ Rodar migrations
 php artisan migrate
 
-5️⃣ Subir o servidor
+5️ Subir o servidor
 php artisan serve
 
 A API estará disponível em:
 
 http://127.0.0.1:8000
 
-📌 Endpoints Principais
+ Endpoints Principais
 Clientes
 
 GET /api/clientes
@@ -97,7 +97,7 @@ PUT /api/lancamentos/{id}
 
 DELETE /api/lancamentos/{id}
 
-📊 Dashboard de Lucratividade
+ Dashboard de Lucratividade
 
 Endpoint específico para cálculo financeiro do projeto:
 
@@ -118,6 +118,6 @@ Break-even
 
 Resumo por tipo de demanda
 
-👤 Autor
+ Autor
 
-Projeto desenvolvido por Dev Froes para desafio técnico.
+Projeto desenvolvido por Daniel Fróes para desafio técnico.
