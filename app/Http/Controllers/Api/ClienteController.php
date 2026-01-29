@@ -8,7 +8,7 @@ use App\Models\Cliente;
 
 class ClienteController extends Controller
 {
-    // GET /api/clientes?search=termo
+    
     public function index(Request $request)
     {
         $search = $request->query('search');
@@ -22,7 +22,7 @@ class ClienteController extends Controller
         return response()->json($query->orderBy('id', 'desc')->get());
     }
 
-    //POST /api/clientes
+    //POST 
     public function store(Request $request)
 {
     $data = $request->validate([

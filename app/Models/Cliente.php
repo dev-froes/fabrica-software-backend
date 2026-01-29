@@ -8,6 +8,6 @@ class Cliente extends Model
     protected $fillable = ['nome', 'email', 'telefone', 'ativo'];
     public function projetos()
     {
-        return $this-hasMany(Projeto::class); 
+        return $this->hasMany(Projeto::class); 
     }
 }

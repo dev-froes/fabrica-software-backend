@@ -18,11 +18,11 @@ class ProjetoController extends Controller
         $query = Projeto::query();
 
         if ($clienteId) {
-            $query-where('cliente_id', $clienteId);
+            $query->where('cliente_id', $clienteId);
         }
 
         if ($search) {
-            $query-where('nome', 'like', "%{$search}%");
+            $query->where('nome', 'like', "%{$search}%");
         }
 
         return response()->json($query->orderBy('id', 'desc')->get());
